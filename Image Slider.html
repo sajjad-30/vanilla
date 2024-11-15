@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slider</title>
+  <style>
+    .slider {
+      max-width: 600px;
+      position: relative;
+      margin: auto;
+      overflow: hidden;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .slides img {
+      width: 100%;
+    }
+    .button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slider">
+    <div class="slides" id="slides">
+      <img src="https://via.placeholder.com/600x300?text=Image+1" alt="Image 1">
+      <img src="https://via.placeholder.com/600x300?text=Image+2" alt="Image 2">
+      <img src="https://via.placeholder.com/600x300?text=Image+3" alt="Image 3">
+    </div>
+    <button class="button prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="button next" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    function changeSlide(direction) {
+      const slides = document.getElementById("slides");
+      const totalSlides = slides.children.length;
+      currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  </script>
+
+</body>
+</html>

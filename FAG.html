@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Accordion</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+   .box  {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      padding: 20px;
+    }
+
+    .container {
+      width: 60%;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+    }
+
+    .faq-item {
+      background-color: white;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .faq-item button {
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      background-color: #007BFF;
+      color: white;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-item button:hover {
+      background-color: #0056b3;
+    }
+
+    .faq-item .answer {
+      padding: 15px;
+      background-color: #f9f9f9;
+      display: none;
+      border-top: 1px solid #ddd;
+      border-radius: 0 0 5px 5px;
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+<div class="container">
+  <h1>Frequently Asked Questions</h1>
+
+  <div class="faq-item">
+    <button class="faq-btn">What is an FAQ page?</button>
+    <div class="answer">
+      <p>An FAQ page is a list of frequently asked questions and their corresponding answers. It helps provide quick information about a product or service.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-btn">How does the accordion work?</button>
+    <div class="answer">
+      <p>The accordion is a collapsible menu where one section expands at a time when clicked, showing the content inside. It saves space and is easy to navigate.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-btn">Why is this FAQ page useful?</button>
+    <div class="answer">
+      <p>This FAQ page is useful because it provides concise answers to common questions, allowing users to quickly find the information they need without searching through the whole site.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-btn">How can I add more FAQs?</button>
+    <div class="answer">
+      <p>To add more FAQs, simply copy one of the FAQ sections and modify the question and answer to suit your needs.</p>
+    </div>
+  </div>
+  
+</div>
+</div>
+<script>
+
+  const faqBtns = document.querySelectorAll('.faq-btn');
+
+  faqBtns.forEach(button => {
+    button.addEventListener('click', function() {
+
+      const answer = this.nextElementSibling;      
+
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+      } else {
+       
+        answer.style.display = "block";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

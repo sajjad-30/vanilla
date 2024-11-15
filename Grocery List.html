@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grocery List</title>
+  <style>
+    .container {
+      max-width: 400px;
+      margin: auto;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <input type="text" id="itemInput" placeholder="Add grocery item">
+    <button onclick="addItem()">Add</button>
+    <ul id="groceryList"></ul>
+  </div>
+
+  <script>
+    function addItem() {
+      const itemInput = document.getElementById("itemInput");
+      const itemText = itemInput.value;
+      if (itemText) {
+        const listItem = document.createElement("li");
+        listItem.textContent = itemText;
+        listItem.onclick = () => listItem.remove();
+        document.getElementById("groceryList").appendChild(listItem);
+        itemInput.value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>

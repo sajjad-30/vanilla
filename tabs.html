@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabs Example</title>
+  <style>
+    .tabs {
+      display: flex;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .tab {
+      padding: 10px 20px;
+      background: #ddd;
+      margin-right: 5px;
+    }
+    .tab-content {
+      display: none;
+      padding: 20px;
+      background: #f4f4f4;
+      margin-top: 10px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .tab.active {
+      background: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tabs">
+    <div class="tab active" data-target="content1">Tab 1</div>
+    <div class="tab" data-target="content2">Tab 2</div>
+    <div class="tab" data-target="content3">Tab 3</div>
+  </div>
+
+  <div id="content1" class="tab-content active">Content for Tab 1</div>
+  <div id="content2" class="tab-content">Content for Tab 2</div>
+  <div id="content3" class="tab-content">Content for Tab 3</div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.getAttribute('data-target')).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
